@@ -2,6 +2,7 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
+
 <div ng-app="myApp" ng-controller="personCtrl">
 First number: <input type="number" ng-model="q"><br>
 Second number: <input type="number" ng-model="v"><br>
@@ -11,6 +12,7 @@ Substraction: {{substraction()}}<br>
 Multiplication: {{multiplication()}}<br>
 Division: {{division()}}<br>
 </div>
+<script>
 var app = angular.module('myApp', []);
 app.controller('personCtrl', function($scope) {
     $scope.q = 44;
