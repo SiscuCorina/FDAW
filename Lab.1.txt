@@ -12,8 +12,6 @@ Substraction: {{substraction()}}<br>
 Multiplication: {{multiplication()}}<br>
 Division: {{division()}}<br>
 </div>
-
-<script>
 var app = angular.module('myApp', []);
 app.controller('personCtrl', function($scope) {
     $scope.q = 44;
