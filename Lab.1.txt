@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+First number: <input type="number" ng-model="q"><br>
+Second number: <input type="number" ng-model="v"><br>
+<br>
+Addition: {{addition()}}<br>
+Substraction: {{substraction()}}<br>
+Multiplication: {{multiplication()}}<br>
+Division: {{division()}}<br>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.q = 44;
+    $scope.v = 20;
+    $scope.addition = function() {
+    return $scope.q + $scope.v;
+    };
+    $scope.substraction = function() {
+    return $scope.q - $scope.v;
+    };
+    $scope.multiplication = function() {
+    return $scope.q * $scope.v;
+    };
+    $scope.division = function() {
+    if($scope.v == 0) {
+        return "Can't be divided by 0";
+        }
+    return $scope.q / $scope.v;
+    };
+});
+</script>
+
+</body>
+</html>
