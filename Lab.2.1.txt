@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="caseCtrl">
+<input ng-model="x" type="text">
+
+<h1>{{x[0] | uppercase}}{{x | limitTo : Infinity : 1 | lowercase}}</h1>
+
+
+</div>
+
+<script>
+
+var app = angular.module('myApp', []);
+app.controller('caseCtrl', function($scope) {
+    $scope.txt= "Hello world!";
+        
+    
+});
+
+</script>
+
+<p>The text is written in lowercase letters.</p>
+
+</body>
+</html>
