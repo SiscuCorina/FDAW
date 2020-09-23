@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+       <style>
+        .wrapper {
+            border: 1px solid black;
+            width: 500px;
+            margin: 10px auto;
+            padding: 30px;
+            
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+
+<div ng-app="app" ng-controller="mainController">
+	<div ng-hide="showing">
+    <h1 style="color:#000000">Формуляр абитуриента</h1>
+    
+    <p style="color:#FF1493"> Фамилия: <input type="text" ng-model="lname" /></p>
+	<p style="color:#FF1493"> Имя: <input type="text" ng-model="fname" /></p>
+	<p style="color:#FF1493"> Дата рождения: <input type="date" ng-model="bday" /></p>
+	<p style="color:#FF1493"> Образование:
+		<select ng-model="obrazovanie">
+			<option>Среднее</option>
+			<option>Среднее специальное</option>
+			<option>Профтех</option>
+			<option>Неполное высшее</option>
+		</select>
+	</p>
+	</div>
+	<p ng-hide="showing" style="color:#FF1493"> 
+	Есть ли бакалауреат: <br/>
+		<input type="radio" id="bac_radio" name="bac" value="true" ng-value="true" ng-model="bac">
+		<label for="bac_radio">Да</label>
+		<input type="radio" id="bac_radio" name="bac" value="false" ng-value="false" ng-model="bac">
+		<label for="bac_radio">Нет</label>
+	</p>
+	<div ng-show="bac" ng-hide="showing">
+		<p style="color:#FF1493"> Факультет:</p>
+		<p>
+			<input type="radio" name="fac" value="Chimie" ng-model="facultet" ng-change="updatePredmets(facultet)">
+			<label> Chimie</label>
+		</p>
+		<p>
+			<input type="radio" name="fac" value="Informatica" ng-model="facultet" ng-change="updatePredmets(facultet)">
+			<label>Informatica</label>
+		</p>
+		<p>
+			<input type="radio" name="fac" value="Matematica" ng-model="facultet" ng-change="updatePredmets(facultet)">
+			<label>Matematica</label>
+		</p>
+		<p>
+			<input type="radio" name="fac" value="Biologia" ng-model="facultet" ng-change="updatePredmets(facultet)">
+			<label>Biologia</label>
+		</p>
+		
+		<p style="color:#FF1493"> Предмет: <select ng-options="item as item for item in predmets" ng-model="selected_predmet"></select> </p>
+		
+		<p style="color:#FF1493"> Оценка по баку: <input type="number" ng-model="bac_score" /></p>
+		<p ng-show="isBacScoreOk()">Отлично!</p>
+		<p ng-show="isBacScoreSmall()">Слабоват!</p>
+	</div>
+	
+	<div ng-hide="showing">
+
+		<button ng-disabled="!bac" ng-click="showing = true">Согласен</button>
+		<button>Отказ</button>
+	</div>
+	
+	<div ng-show="showing">
+		<p>Имя {{ fname }}</p>
+		<p>Фамилия {{ lname }}</p>
+		<p>Дата рождения {{ bday }}</p>
+		<p>Есть ли бакалауреат {{ bac }}</p>
+		<p>Факультет {{ facultet }}</p>
+		<p>Предмет {{ selected_predmet }}</p>
+		<p>Оценка по баку {{ bac_score }}</p>
+	</div>
+</div>
+
+
+<script>
+    var app = angular.module('app', []);
+    app.controller('mainController', function($scope) {
+		$scope.isBacScoreOk = function() {
+			return $scope.bac_score && $scope.bac_score > 8;
+		}
+		$scope.isBacScoreSmall = function() {
+			return $scope.bac_score && $scope.bac_score < 6;
+		}
+		$scope.predmets = [];
+		$scope.showing = false;
+		$scope.updatePredmets = function(q) {
+			switch (q) {
+				case 'Chimia':
+					$scope.predmets = ['Organic chemistry', 'Crystal chemistry', 'Chemical reactor'];
+					break;
+				case 'Informatica':
+					$scope.predmets = ['HTML', 'Baza de Date', 'JAVA', 'FDAW', 'Grafica 2D', 'SAW'];
+					break;
+				case 'Matematica':
+					$scope.predmets = ['Business and management', 'Economica', 'Matematica', 'accounting'];
+					break;
+				case 'Biologia':
+					$scope.predmets = ['Biologia ', 'Bioethics', 'Bioinformatics and computer technologies'];
+					break;
+			}
+		}
+    });
+</script>
+</body>
+</html>
