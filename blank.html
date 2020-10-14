@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+	
+	
+	<meta charset="utf-8">
+    <title>S4-HOMEWORK</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		
+		
+        <meta charset="utf-8">
+        <title>Invitro </title>
+        <link rel="shortcut icon" href="resources/images/logos/imgs.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+		<style type="text00/css">
+		    <meta charset="UTF-8">
+			
+    
+</style>
+		
+    </head>
+	<body>
+	<div class="wrapper container">
+                <nav class="navbar navbar-expand-lg row">
+                    <a class="navbar-brand col-xs-2" href="index.html">
+                        <img width="100px" height="100px" class="img-responsive"
+                            src="resources/images/logos/img.png" alt="image">
+                    </a>
+
+                    <div class="collapse navbar-collapse col-xs-10 justify-content-end">
+					
+                         <ul class="navbar-nav ml-auto">
+                            <li class  ="nav-item active ">
+                                <a class = "nav-link " href="index.html">Главная</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacts.html">Контакты</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blank.html">Бланк</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link" href="vraci.html">Врачи</a>
+                            </li>
+							</ul>
+                    </div>
+                </nav>
+            </div>
+	    <div ng-app="">
+        <div class="container">
+            <h3>Бланк заявки на плановую госпитализацию</h3> <br>
+            <form class="form-group">
+                Фамиллия: <input class="form-control" type="text" ng-model="lastName"> <br>
+                Имя: <input class="form-control" type="text" ng-model="firstName"> <br>
+                Дата рождения: <input class="form-control" type="date" ng-model="birthDate"> <br>
+				Номер телефона: <input class="form-control" type="numver" ng-model="phone"> <br>
+				Емаил <input class="form-control" type="text" ng-model="Email"> <br>
+				
+				Желаемый период госпитализации с: <input class="form-control" type="date" ng-model="birthDate"> <br>
+				                                  
+												  <input class="form-control" type="date" ng-model="birthDate"> <br>
+												  
+               <br>
+                <button ng-init="isSubmit=false;" ng-click="isSubmit=true;" ng-disabled="expectedSalary >= 10000" class="btn btn-primary">ОМС(Бесплатный прием)</button>
+                <button class="btn btn-danger">ПМУ(Платный прием</button><br>
+				
+				
+				
+				 </br>
+				
+                <br> <h4> Наименование направляющего учреждения:</h4> <br>
+
+                 <div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №1" type="radio" id="radio1" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio1">Городская поликлиника №1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №2 " type="radio" id="radio2" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio2">Городская поликлиника №2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №3" type="radio" id="radio3" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio3">Городская поликлиника №3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №4" type="radio" id="radio4" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio4">Городская поликлиника №4</label>
+                </div> 
+				
+				<div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №5" type="radio" id="radio4" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio4">Городская поликлиника №5</label>
+                </div> 
+				
+				
+				<div class="form-check">
+                    <input class="form-check-input" value="Городская поликлиника №6" type="radio" id="radio4" name="facultyname" ng-model="faculty">
+                    <label class="form-check-label" for="radio4">Городская поликлиника №6</label>
+					
+					
+					
+					
+					
+					
+                </div> <br>
+				<div class="col-auto my-1">
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" ng-model="subject">
+					
+                        <br> <option value="Кардиология">Кардиология</option>
+                        <option value="Терапия">Терапия</option>
+                        <option value="Офтальмология">Офтальмология</option>
+						<option value="ЛОР">ЛОР</option>
+                        <option value="Отд. реабилитации">Отд. реабилитации</option>
+						<option value="Хоспис (ст)">Хоспис (ст)</option>
+                        <option value="Пульмонология">Пульмонология</option><br>
+						
+						<br> <p>
+                    
+                    
+                </p>
+                </div>
+				
+				<br>
+				<input class="btn btn-primary mt-3"  ="btn btn-primary" type="submit" ng-click="showAnswer=true;"
+                    ng-disabled="myForm.email.$error.required && !myForm.description.$invalid">
+					
+                <br> 
+				
+               </form>
+			   
+            
+
+            
+        </div>
+    </div>
+	
+	
+        <!-- header with logo and links -->
+        <header>
+		
+		
+  </style>
+            
+        </header>
+
+        
+
+		
+		<!-- /.navbar-collapse -->
+                    </nav>
+                    <div class="call-back">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+                  
+
+
+
+
+
+        
+            <div class="footer-copyright text-center py-3">
+                <a href="index.html"> Invitro</a>
+            </div>
+        </footer>
+        
+    </body>
+</html>
